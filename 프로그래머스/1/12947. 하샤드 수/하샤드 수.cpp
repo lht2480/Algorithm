@@ -5,13 +5,20 @@ using namespace std;
 
 bool solution(int x) 
 {
+    bool answer = true;
     int a = x;
     int sum = 0;
-    bool answer = true;
-    while (x > 0) 
+    while(x > 0)
     {
-        sum += x%10;
-        x/=10;
+        sum += x % 10;
+        x /= 10;
     }
-    return (a % sum == 0);
+    if(a % sum == 0)
+    {
+        return answer;
+    }else
+    {
+        answer = false;
+        return answer;
+    }
 }
