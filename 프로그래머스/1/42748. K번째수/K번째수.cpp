@@ -1,16 +1,15 @@
 #include <string>
 #include <vector>
-#include <algorithm>
+#include <algorithm> 
 
 using namespace std;
 
 vector<int> solution(vector<int> array, vector<vector<int>> commands) {
     vector<int> answer;
     vector<int> temp;
-    int j, i = 0;
-    for(i; i < commands.size(); i++)
+    for(int i = 0; i < commands.size(); i++)
     {
-        for(j = commands[i][0]-1; j < commands[i][1]; j++)
+        for(int j = commands[i][0]-1; j < commands[i][1]; j++)
         {
             temp.push_back(array[j]);
         }
