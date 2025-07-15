@@ -41,6 +41,5 @@ vector<int> solution(vector<int> answers)
     {
          answer.push_back(3);
     }
-    sort(answer.begin(), answer.end());
     return answer;
 }
