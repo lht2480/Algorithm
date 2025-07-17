@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-//01023952480
+
 string solution(string phone_number) {
     string answer = "";
     if(phone_number.length()==4)
