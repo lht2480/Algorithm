@@ -8,26 +8,25 @@ int solution(string s)
     map<string, char> map = {{"zero", '0'}, {"one", '1'}, {"two", '2'}, {"three", '3'}, {"four", '4'},  
                              {"five", '5'}, {"six", '6'}, {"seven", '7'},{"eight", '8'}, {"nine", '9'}};
     int answer = 0;
-    string numbers = "";
-    string temp = "";
+    string temp;
+    string idx;
+    
     for(char c : s)
     {
         if(c >= '0' && c <= '9')
         {
-            numbers += c;
-        }else
-        {
             temp += c;
-            if(map.find(temp) != map.end())
+        }
+        else
+        {
+            idx += c;
+            if(map.find(idx) != map.end())
             {
-                numbers += map[temp];
-                temp = "";
+                temp += map[idx];
+                idx = "";
             }
         }
     }
-    for(char c : numbers)
-    {
-        answer = answer * 10 + (c - '0');
-    }
+    answer = stoi(temp);
     return answer;
 }
