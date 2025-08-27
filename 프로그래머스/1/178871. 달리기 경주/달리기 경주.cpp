@@ -5,7 +5,7 @@ using namespace std;
 
 vector<string> solution(vector<string> players, vector<string> callings) 
 {
-    unordered_map<string, int> index; //mumu, seo, peu          seo
+    unordered_map<string, int> index;
     
     for(int i = 0; i < players.size(); ++i)
     {
