@@ -7,20 +7,23 @@ string solution(string s)
 {
     string answer = "";
     int i = 0;
+    
     for(char c : s)
     {
         if(c == ' ')
         {
             answer += c;
             i = 0;
-        }else
+        }
+        else
         {
             if(i % 2 == 0)
             {
-                if(c >= 'a'&& c <= 'z')
+                if(c >= 'a' && c <= 'z')
                 {
                     answer += c - 32;
-                }else
+                }
+                else
                 {
                     answer += c;
                 }
@@ -29,12 +32,13 @@ string solution(string s)
                 if(c >= 'A' && c <= 'Z')
                 {
                     answer += c + 32;
-                }else
+                }
+                else
                 {
                     answer += c;
                 }
             }
-            i++;
+            ++i;
         }
     }
     return answer;
