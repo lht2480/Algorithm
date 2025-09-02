@@ -3,35 +3,32 @@
 
 using namespace std;
 
-int solution(int number, int limit, int power) {
-    vector<int> nums;
+int solution(int number, int limit, int power) 
+{
     int answer = 0;
-    int temp = 0;
-    for(int i = 1; i <= number; i++)
+    int temp;
+    
+    for(int i = 1; i <= number; ++i)
     {
         temp = 0;
-        for(int j = 1; j * j <= i; j++)
+        for(int j = 1; j * j <= i; ++j)
         {
-            if (i % j == 0) 
+            if(j * j == i)
             {
-                if (j * j == i) 
-                {
-                    temp += 1;
-                } else 
-                {
+                temp += 1;
+            }
+            else if(i % j == 0)
+            {
                 temp += 2;
-                }
             }
         }
+        
         if(temp > limit)
         {
             temp = power;
         }
-        nums.push_back(temp);
+        answer += temp;
     }
-    for(int i = 0; i < nums.size(); ++i)
-    {
-        answer += nums[i];
-    }
+    
     return answer;
 }
