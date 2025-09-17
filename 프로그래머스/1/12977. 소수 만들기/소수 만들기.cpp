@@ -3,11 +3,11 @@
 #include <cmath>
 using namespace std;
 
-bool sqr(int n)
+bool func(int a)
 {
-    for(int i = 2; i <= sqrt(n); ++i)
+    for(int i = 2; i <= sqrt(a); ++i)
     {
-        if(n % i == 0)
+        if(a % i == 0)
         {
             return false;
         }
@@ -18,20 +18,22 @@ bool sqr(int n)
 int solution(vector<int> nums) 
 {
     int answer = 0;
-    int sum;
-    for(int i = 0; i < (nums.size() - 2); ++i)
+    int n = nums.size();
+    int sum = 0;
+    for(int i = 0; i < n - 2; ++i)
     {
-        for(int j = i + 1 ; j < (nums.size() - 1); ++j)
+        for(int j = i + 1; j < n - 1; ++j)
         {
-            for(int k = j + 1; k < nums.size(); ++k)
+            for(int k = j + 1; k < n; ++k)
             {
                 sum = nums[i] + nums[j] + nums[k];
-                if(sqr(sum))
+                if(func(sum))
                 {
                     answer++;
                 }
             }
         }
     }
+
     return answer;
 }
