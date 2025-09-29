@@ -3,41 +3,42 @@
 
 using namespace std;
 
-vector<int> solution(string s) //110010101001
+vector<int> solution(string s) 
 {
-    int transformcount = 0;  //변환된 횟수
-    int deletedzero = 0;  //제거된 0의 개수
+    int zerocount = 0; //제거된 0의 갯수
+    int deletezero = 0; //변환된 횟수
     
-    while(s != "1")
+    while (s != "1")
     {
-        int countzero = 0;   //현재 스트링에서의 0의 개수
-        string zerodeletednum;   //0제거후 이진수;
+        int zeronum = 0; //현재 스트링에서 0갯수
+        string deletenum = ""; // 0제거후 이진수
         
-        for(char c : s)
+        for(char c: s)
         {
-            if( c == '0') 
+            if(c == '0')
             {
-                ++countzero;
+                ++zeronum;
             }else
             {
-                zerodeletednum += c;
+                deletenum += c;
             }
         }
-        //countzero==6   newnum == 111111
-        deletedzero += countzero;
         
-        int size = zerodeletednum.length(); //0제거된 이진수 크기
+        zerocount += zeronum;
+        
+        int size = deletenum.length();
         string nextnum = "";
+        
         while(size > 0)
         {
-            nextnum = (size % 2 == 0 ? '0' : '1') + nextnum; 
+            nextnum = (size % 2 == 0 ? '0' : '1') + nextnum;
             size /= 2;
         }
         
         s = nextnum;
-        transformcount++;
+        deletezero ++;
     }
     
+    return {deletezero, zerocount};
     
-    return {transformcount, deletedzero};
 }
